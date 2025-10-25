@@ -1,19 +1,31 @@
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
-  background: linear-gradient(120deg, #ffffff, #e0f0ff); /* единый фон для всей страницы */
-  color: #333;
+  background: linear-gradient(120deg, #ffffff, #e0f0ff);
+  overflow: hidden;
   height: 100vh;
-  overflow-x: hidden;
+  color: #333;
+}
+
+#particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .container {
   display: flex;
   height: 100vh;
   width: 100%;
+  position: relative;
+  z-index: 1; /* над частицами */
 }
 
-/* Левая колонка с QR и кнопкой */
+/* Левая колонка */
 .left {
   flex: 1;
   display: flex;
@@ -57,7 +69,7 @@ body {
   color: #555;
 }
 
-/* Правая колонка с надписью */
+/* Правая колонка */
 .right {
   flex: 1;
   display: flex;
@@ -76,7 +88,7 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-/* Анимации */
+/* Анимации элементов */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
