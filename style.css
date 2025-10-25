@@ -3,35 +3,30 @@ body {
   font-family: 'Arial', sans-serif;
   background-color: #ffffff;
   color: #333;
+  height: 100vh;
 }
 
-.header {
-  position: relative;
-  text-align: right;
-  color: white;
+.container {
+  display: flex;
+  height: 100vh;
 }
 
-.header img {
-  width: auto;        /* Ширина изображения подгоняется под содержимое */
-  max-width: 400px;   /* Ограничение ширины */
-  height: auto;       /* Автоматическая высота */
-  display: block;
-  margin: 0 auto;     /* Центрирование по горизонтали */
-  padding-top: 40px;  /* Отступ сверху */
+/* Левая часть с QR и кнопкой */
+.left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 50px;
+  text-align: left;
 }
 
-.header-text {
-  position: absolute;
-  top: 20px;
-  right: 40px;
-  font-size: 2rem;
-  font-weight: bold;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-}
-
-.content {
-  padding: 40px;
-  text-align: center;
+.qr-image {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
 }
 
 .pay-button {
@@ -55,4 +50,20 @@ body {
 .description {
   font-size: 1rem;
   color: #555;
+}
+
+/* Правая часть с надписью */
+.right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 50px;
+  background-color: #f8f8f8;
+}
+
+.header-text {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: right;
 }
