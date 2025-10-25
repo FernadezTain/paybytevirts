@@ -62,10 +62,9 @@ body {
   color: #ff9900;
 }
 
-/* Кнопка */
 .pay-button {
-  background: linear-gradient(90deg, #007bff, #00c0ff, #007bff);
-  background-size: 300% 100%;
+  background: linear-gradient(270deg, #00c0ff, #8000ff, #00c0ff); /* голубой -> фиолетовый -> голубой */
+  background-size: 600% 100%; /* для плавного движения градиента */
   color: white;
   border: none;
   padding: 15px 40px;
@@ -74,12 +73,19 @@ body {
   cursor: pointer;
   text-decoration: none;
   transition: all 0.5s ease;
+  animation: gradientShift 4s ease infinite; /* плавное переливание */
 }
 
 .pay-button:hover {
-  background-position: 100% 0;
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Анимация градиента кнопки */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Текст описания */
