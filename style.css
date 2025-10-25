@@ -1,69 +1,101 @@
+/* Основные стили */
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
-  background-color: #ffffff;
+  background: linear-gradient(120deg, #ffffff, #f0f4ff);
   color: #333;
   height: 100vh;
+  overflow-x: hidden;
 }
 
 .container {
   display: flex;
   height: 100vh;
+  width: 100%;
 }
 
-/* Левая часть с QR и кнопкой */
+/* Левая колонка */
 .left {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  padding-left: 50px;
-  text-align: left;
+  align-items: flex-start;
+  padding-left: 80px;
+  gap: 20px;
 }
 
+/* QR */
 .qr-image {
-  max-width: 200px;  /* ограничиваем ширину QR */
+  max-width: 200px; /* ограничиваем QR */
   width: 100%;
   height: auto;
-  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
+/* Кнопка */
 .pay-button {
-  background-color: #007bff;
+  background: linear-gradient(90deg, #007bff, #00c0ff);
   color: white;
   border: none;
-  padding: 15px 30px;
+  padding: 15px 35px;
   font-size: 1.2rem;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
   text-decoration: none;
-  display: inline-block;
-  margin-bottom: 10px;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease;
 }
 
 .pay-button:hover {
-  background-color: #0056b3;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
 }
 
+/* Текст описания */
 .description {
   font-size: 1rem;
   color: #555;
 }
 
-/* Правая часть с надписью */
+/* Правая колонка */
 .right {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-right: 50px;
-  background-color: #f8f8f8;
+  padding-right: 80px;
+  background: linear-gradient(135deg, #f8f8f8, #e0ebff);
 }
 
 .header-text {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: bold;
   text-align: right;
+  line-height: 1.3;
+  background: linear-gradient(90deg, #007bff, #00c0ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Анимации */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards;
+}
+
+.fade-in.delay-1 {
+  animation-delay: 0.5s;
+}
+
+.fade-in.delay-2 {
+  animation-delay: 1s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
