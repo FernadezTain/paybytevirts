@@ -9,7 +9,7 @@ body {
   justify-content: center;
   align-items: flex-start;
   min-height: 100vh;
-  padding: 40px 20px 20px 20px; /* верхний отступ для текста */
+  padding: 40px 20px 20px 20px;
 }
 
 /* Канвас для частиц */
@@ -23,17 +23,17 @@ body {
   z-index: 0;
 }
 
-/* Основной контейнер */
+/* Контейнер */
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Центрируем все элементы */
+  align-items: center; /* Центрируем всё */
   width: 100%;
-  max-width: 500px; /* ограничиваем ширину */
+  max-width: 500px;
   z-index: 1;
 }
 
-/* Заголовок сверху */
+/* Заголовок */
 .header-text {
   font-size: 2rem;
   font-weight: bold;
@@ -46,18 +46,24 @@ body {
   animation: textGradient 3s infinite alternate;
 }
 
-/* QR код */
-.qr-image {
-  max-width: 250px;
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+/* QR */
+.qr-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 20px;
-  display: block;
 }
 
-/* Подсказка под QR */
+.qr-image {
+  width: 200px;
+  max-width: 80%;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Подсказка */
 .hint {
   font-size: 0.95rem;
   color: #007bff;
@@ -66,7 +72,7 @@ body {
   margin-bottom: 5px;
 }
 
-/* Оплата через ЮMoney */
+/* ЮMoney */
 .payment-method {
   font-size: 1rem;
   font-weight: 600;
@@ -89,7 +95,7 @@ body {
   transition: all 0.5s ease;
   animation: gradientShift 4s ease infinite;
   display: block;
-  margin: 0 auto 15px auto;
+  margin-bottom: 15px;
 }
 
 .pay-button:hover {
@@ -105,20 +111,7 @@ body {
   margin-bottom: 30px;
 }
 
-/* Анимация градиента текста */
-@keyframes textGradient {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
-}
-
-/* Анимация градиента кнопки */
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Анимации элементов */
+/* Анимации */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
@@ -128,26 +121,26 @@ body {
 .fade-in.delay-1 { animation-delay: 0.5s; }
 .fade-in.delay-2 { animation-delay: 1s; }
 .fade-in.delay-3 { animation-delay: 1.5s; }
-.fade-in.delay-4 { animation-delay: 2s; }
 
-/* Анимация появления */
 @keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Медиазапрос для телефонов */
+@keyframes textGradient {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Адаптация для телефонов */
 @media (max-width: 480px) {
-  .header-text {
-    font-size: 1.8rem;
-  }
-  .qr-image {
-    max-width: 200px;
-  }
-  .pay-button {
-    padding: 12px 30px;
-    font-size: 1.1rem;
-  }
-  .hint, .payment-method, .description {
-    font-size: 0.9rem;
-  }
+  .header-text { font-size: 1.8rem; }
+  .qr-image { width: 160px; }
+  .pay-button { padding: 12px 30px; font-size: 1.1rem; }
+  .hint, .payment-method, .description { font-size: 0.9rem; }
 }
