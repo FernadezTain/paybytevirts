@@ -8,8 +8,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding-top: 40px; /* Отступ сверху для текста */
   min-height: 100vh;
+  padding: 40px 20px 20px 20px; /* верхний отступ для текста */
 }
 
 /* Канвас для частиц */
@@ -27,12 +27,10 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  align-items: center; /* Центрируем все элементы */
   width: 100%;
-  max-width: 400px; /* Ограничиваем ширину для телефонов */
+  max-width: 500px; /* ограничиваем ширину */
   z-index: 1;
-  padding: 0 20px;
 }
 
 /* Заголовок сверху */
@@ -51,11 +49,12 @@ body {
 /* QR код */
 .qr-image {
   max-width: 250px;
-  width: 80%;
+  width: 100%;
   height: auto;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
   margin-bottom: 20px;
+  display: block;
 }
 
 /* Подсказка под QR */
@@ -131,6 +130,7 @@ body {
 .fade-in.delay-3 { animation-delay: 1.5s; }
 .fade-in.delay-4 { animation-delay: 2s; }
 
+/* Анимация появления */
 @keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
 }
@@ -142,7 +142,6 @@ body {
   }
   .qr-image {
     max-width: 200px;
-    width: 70%;
   }
   .pay-button {
     padding: 12px 30px;
