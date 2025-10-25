@@ -6,14 +6,15 @@ canvas.height = window.innerHeight;
 
 let particlesArray = [];
 
-// Частица
 class Particle {
   constructor(x, y) {
     this.x = x;
     this.y = y;
-    this.size = Math.random() * 4 + 1;
-    this.speedX = Math.random() * 2 - 1;
-    this.speedY = Math.random() * -3 - 1;
+    this.size = Math.random() * 3 + 1;
+    const angle = Math.random() * 2 * Math.PI;
+    const speed = Math.random() * 3 + 1;
+    this.speedX = Math.cos(angle) * speed;
+    this.speedY = Math.sin(angle) * speed;
     this.color = `hsl(${Math.random() * 360}, 80%, 60%)`;
     this.alpha = 1;
     this.fade = Math.random() * 0.01 + 0.005;
@@ -35,7 +36,6 @@ class Particle {
   }
 }
 
-// Генерация частиц из QR
 function spawnParticles() {
   const qr = document.querySelector('.qr-image');
   const rect = qr.getBoundingClientRect();
@@ -47,7 +47,6 @@ function spawnParticles() {
   }
 }
 
-// Анимация
 function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   particlesArray.forEach((p, index) => {
@@ -60,11 +59,9 @@ function animate() {
   requestAnimationFrame(animate);
 }
 
-// Интервал появления частиц
 setInterval(spawnParticles, 100);
 animate();
 
-// Подстраиваем размер канваса при изменении окна
 window.addEventListener('resize', () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
